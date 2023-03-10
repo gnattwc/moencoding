@@ -17,7 +17,7 @@ type SolutionStep = {
 
 type JugSolution = SolutionStep[];
 
-type SolverFunction = (initState: JugState) => JugSolution;
+type SolverFunction = (jug1: number, jug2: number, aim:number, initState: JugState) => JugSolution;
 
 class TwoWaterJugRiddle {
   constructor(private solver: SolverFunction) {}
@@ -28,7 +28,7 @@ class TwoWaterJugRiddle {
     aim: number,
     initState: JugState = [0, 0]
   ): JugSolution {
-    return this.solver(initState);
+    return this.solver(jug1, jug2, aim, initState);
   }
 }
 
