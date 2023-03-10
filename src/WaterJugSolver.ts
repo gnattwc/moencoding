@@ -26,6 +26,7 @@ class QueueStep {
   }
 }
 
+// water jug riddle solver using breadth first search
 function bfsSolver(
   jug1: number,
   jug2: number,
@@ -48,7 +49,7 @@ function bfsSolver(
       }
 
       // if goal reached
-      if (cur.state[0] == aim || cur.state[1] === aim) {
+      if (cur.state[0] == aim || cur.state[1] === aim || cur.state[0] + cur.state[1] === aim) {
         return cur.path;
       }
 

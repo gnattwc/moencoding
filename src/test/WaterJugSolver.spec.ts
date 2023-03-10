@@ -1,4 +1,4 @@
-import {bfsSolver, sampleSolver} from "../src/WaterJugSolver";
+import {bfsSolver, sampleSolver} from "../WaterJugSolver";
 import { assert} from 'chai';
 
 describe ("sampleSolver Tests", () => {
