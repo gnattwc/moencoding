@@ -1,10 +1,10 @@
 enum JugAction {
   Init,
   EmptyLeft,
-  FillLeft,
-  TransferLeftToRight,
   EmptyRight,
+  FillLeft,
   FillRight,
+  TransferLeftToRight,
   TransferRightToLeft,
 }
 
@@ -32,5 +32,5 @@ class TwoWaterJugRiddle {
   }
 }
 
-export { JugAction, JugSolution, JugState, TwoWaterJugRiddle};
+export { JugAction, JugSolution, JugState, TwoWaterJugRiddle, SolverFunction, SolutionStep};
 
