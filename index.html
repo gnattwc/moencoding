@@ -34,7 +34,8 @@
             <button type="button" value="Click" id="run">Solve Riddle</button>    
         </fieldset>
     </form>
-    <div id="glassSection">
+    <h3 id="inputValuesText"></h3>
+    <div id="glassSection" style="visibility: hidden">
         <div id="leftGlassCtr" class="glassCtr">
             <div id="leftGlass" class="glass leftGlass"></div>
         </div>
@@ -44,9 +45,7 @@
         </div>
     </div>
     <div id="output">
-        <h2 id="noSolution" style="visibility: hidden">
-            No Solution
-        </h2>
+        <h3 id="solutionText" class="highlight"></h3>
         <table id="solutionTable" style="visibility: hidden">
             <tr>
                 <th>Step</th>
