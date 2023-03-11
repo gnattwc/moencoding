@@ -62,7 +62,7 @@ function bfsSolver(
         new QueueStep(JugAction.FillRight, [cur.state[0], jug2], cur.path)
       );
       q.push(new QueueStep(
-        JugAction.TransferLeftToRight,
+        JugAction.LeftToRight,
         [
           cur.state[0] - Math.min(cur.state[0], jug2 - cur.state[1]),
           cur.state[1] + Math.min(cur.state[0], jug2 - cur.state[1]),
@@ -70,7 +70,7 @@ function bfsSolver(
         cur.path
       ));
       q.push(new QueueStep(
-        JugAction.TransferRightToLeft,
+        JugAction.RightToLeft,
         [
           cur.state[0] + Math.min(cur.state[1], jug1 - cur.state[0]),
           cur.state[1] - Math.min(cur.state[1], jug1 - cur.state[0]),

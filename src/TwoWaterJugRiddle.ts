@@ -4,8 +4,8 @@ enum JugAction {
   EmptyRight,
   FillLeft,
   FillRight,
-  TransferLeftToRight,
-  TransferRightToLeft,
+  LeftToRight,
+  RightToLeft,
 }
 
 type JugState = [left: number, right: number];
