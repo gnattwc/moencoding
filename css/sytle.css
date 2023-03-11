@@ -17,13 +17,13 @@
     padding: 8px;
 }
 
-#solutionTable tr:nth-child(even) {
+/* #solutionTable tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
 #solutionTable tr:hover {
     background-color: #ddd;
-}
+} */
 
 #solutionTable th {
     padding-top: 12px;
@@ -31,6 +31,10 @@
     text-align: left;
     background-color: #04AA6D;
     color: white;
+}
+
+.highlight {
+    background: yellow;
 }
 
 .glassSection {
