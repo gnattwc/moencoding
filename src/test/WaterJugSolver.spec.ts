@@ -10,28 +10,45 @@ describe ("sampleSolver Tests", () => {
 })
 
 describe ("bfsSolver Tests", () => {
-    it ("sanity check", () => {
+    it ("4 3 0", () => {
         const solution = bfsSolver(4,3,0,[0,0]);
         console.log('solution=',solution) ;
-        assert(solution.length);
+        assert(solution.length === 1);
     })
     
-    it ("sanity check 2", () => {
+    it ("4 3 4", () => {
         const solution = bfsSolver(4,3,4,[0,0]);
         console.log('solution=',solution) ;
-        assert(solution.length);
+        assert(solution.length === 2);
     })
 
-    it ("sanity check 3", () => {
+    it ("4 3 3", () => {
         const solution = bfsSolver(4,3,3,[0,0]);
         console.log('solution=',solution) ;
-        assert(solution.length);
+        assert(solution.length === 2);
     })
 
-    it ("sanity check 4", () => {
+    it ("7 3 6", () => {
         const solution = bfsSolver(7,3,6,[0,0]);
+        console.log('solution=',solution) ;
+        assert(solution.length === 4);
+    })
+
+    it ("7 9 8", () => {
+        const solution = bfsSolver(7,9,8,[0,0]);
+        console.log('solution=',solution) ;
+        assert(solution.length === 15);
+    })
+
+    it ("5 3 8", () => {
+        const solution = bfsSolver(5,3,8,[0,0]);
         console.log('solution=',solution) ;
         assert(solution.length);
     })
 
+    it ("no solution", () => {
+        const solution = bfsSolver(12,8,5,[0,0]);
+        console.log('solution=',solution) ;
+        assert(solution.length === 0);
+    })
 })

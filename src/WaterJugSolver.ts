@@ -34,7 +34,7 @@ function bfsSolver(
   initState: JugState
 ): JugSolution {
   const q: QueueStep[] = []; // queue to store states to be visited
-  const visited = new Set<JugState>(); // states already visited
+  const visited = new Set<string>(); // states already visited
 
   const init = new QueueStep(JugAction.Init, initState, []);
   q.push(init);
@@ -44,7 +44,7 @@ function bfsSolver(
 
     // if already visited
     if (cur) {
-      if (visited.has(cur.state)) {
+      if (visited.has(cur.state.toString())) {
         continue;
       }
 
@@ -53,7 +53,7 @@ function bfsSolver(
         return cur.path;
       }
 
-      visited.add(cur.state);
+      visited.add(cur.state.toString());
 
       q.push(new QueueStep(JugAction.EmptyLeft, [0, cur.state[1]], cur.path));
       q.push(new QueueStep(JugAction.EmptyRight, [cur.state[0], 0], cur.path));
