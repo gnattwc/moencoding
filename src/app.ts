@@ -5,7 +5,6 @@ let btn = <HTMLButtonElement>document.getElementById("run");
 btn.addEventListener("click", (e: Event) => solveRiddle());
 
 function solveRiddle() {
-  //   alert("haha");
   clearOutput2();
 
   const jug1 = <HTMLInputElement>document.getElementById("leftJug");
