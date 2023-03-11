@@ -12,10 +12,25 @@
     <p>
         water jug problem explanation
     </p>
-    <ol id="root">
-        <ol id="outputList">
-            <li>one</li>
-        </ol>
-    </div>
+    <form>
+        <fieldset>
+            <legend>Jug sizes</legend>
+            <p>
+                <label for="leftJug">Jug1:</label>  
+                <input type="number" name="LeftJug" id="leftJug" value="4">  
+            </p>
+            <p>
+                <label for="rightJug">Jug2:</label>  
+                <input type="number" name="RightJug" id="rightJug" value="3">    
+            </p>
+            <p>
+                <label for="aim">Aim:</label>  
+                <input type="number" name="Aim" id="aim" value="2">
+            </p>            
+            <button type="button" value="Click" id="run">Solve Riddle</button>    
+        </fieldset>
+    </form>
+    <ol id="solutionList">
+    </ol>
 </body>
 </html>
