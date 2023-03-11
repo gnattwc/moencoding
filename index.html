@@ -9,28 +9,42 @@
     <script defer src="./dist/bundle.js"></script>
 </head>
 <body>
-    <p>
-        water jug problem explanation
-    </p>
+    <div id="problem">
+        <h3>Water Jug Problem</h3>
+        <p>
+            You have an X-gallon and a Y-gallon jug that you can fill from a lake. (Assume lake has unlimited amount
+            of water.) <br> By using only an X-gallon and Y-gallon jug (no third jug), measure Z gallons of water. 
+        </p>
+    </div>
     <form>
         <fieldset>
-            <legend>Jug sizes</legend>
+            <legend>Jug sizes (gallons)</legend>
             <p>
-                <label for="leftJug">Jug1:</label>  
+                <label for="leftJug">X:</label>  
                 <input type="number" name="LeftJug" id="leftJug" value="4">  
             </p>
             <p>
-                <label for="rightJug">Jug2:</label>  
+                <label for="rightJug">Y:</label>  
                 <input type="number" name="RightJug" id="rightJug" value="3">    
             </p>
             <p>
-                <label for="aim">Aim:</label>  
+                <label for="aim">Z:</label>  
                 <input type="number" name="Aim" id="aim" value="2">
             </p>            
             <button type="button" value="Click" id="run">Solve Riddle</button>    
         </fieldset>
     </form>
-    <ol id="solutionList">
-    </ol>
+    <div id="output">
+        <h2 id="noSolution" style="visibility: hidden">
+            No Solution
+        </h2>
+        <table id="solutionTable" style="visibility: hidden">
+            <tr>
+                <th>Step</th>
+                <th>Action</th>
+                <th>State</th>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

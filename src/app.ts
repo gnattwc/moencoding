@@ -1,14 +1,12 @@
 import { TwoWaterJugRiddle, JugSolution, JugAction } from "./TwoWaterJugRiddle";
 import { bfsSolver } from "./WaterJugSolver";
 
-// const root: HTMLElement = document.getElementById("root")!;
-// root.textContent = "hi root";
-
 let btn = <HTMLButtonElement>document.getElementById("run");
 btn.addEventListener("click", (e: Event) => solveRiddle());
 
 function solveRiddle() {
   //   alert("haha");
+  clearOutput2();
 
   const jug1 = <HTMLInputElement>document.getElementById("leftJug");
   const jug2 = <HTMLInputElement>document.getElementById("rightJug");
@@ -26,16 +24,41 @@ function solveRiddle() {
     +aim.value
   );
 
-  const list: HTMLElement = document.getElementById("solutionList")!;
+  displayOutput2(solution);
+}
+
+// display output
+function displayOutput2(solution: JugSolution) {
+  const table = <HTMLTableElement>document.getElementById("solutionTable")!;
   if (solution.length > 0) {
+    table.style.visibility = "visible";
     solution.forEach((s, i) => {
-      const li = document.createElement("li");
-      const str: string = "action=" + JugAction[s.action] + '   ' + s.state;
-      li.innerText = str;
-      list.appendChild(li);
+      // Create an empty <tr> element and add it to the 1st position of the table:
+      var row = table.insertRow(i+1);
+
+      // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+
+      // Add some text to the new cells:
+      cell1.innerText = i.toString();
+      cell2.innerText = JugAction[s.action];
+      cell3.innerText = s.state.toString();
     });
   } else {
-    const li = document.createElement("li");
-    list.appendChild(document.createTextNode("No Solution"));
+    const h2 = <HTMLHeadingElement>document.getElementById("noSolution");
+    h2.style.visibility = "visible";
+  }
+}
+
+function clearOutput2() {
+  const h2 = <HTMLHeadingElement>document.getElementById("noSolution");
+  h2.style.visibility = "hidden";
+
+  const table = <HTMLTableElement>document.getElementById("solutionTable")!;
+  table.style.visibility = "hidden";
+  while (table.rows.length > 1) {
+    table.deleteRow(1);
   }
 }
