@@ -37,41 +37,56 @@
     border: 1px solid black;
 }
 
+#actionGlass {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 100px;
+    margin: 40px;
+}
+
 .glass {
     display: inline-block;
     vertical-align: middle;
     width: 36px;
     height: 82px;
-    position: unset;
+    position: relative;
     margin: 40px;
     border: 2px solid black;
     transform: perspective(120px) rotateX(-45deg);
+    /* transform: perspective(50px) rotateX(-30deg); */
 }
 
-.glassFull {
-    animation: load 1.6s linear alternate;
-    box-shadow: inset 0 -82px blue;
+/* ref: https://codepen.io/sandrina-p/pen/axVeGg */
+
+.glassLeft {
+    --leftFillFrom: -25px;
+    --leftFillTo: -50px;
+    animation: leftLoad 1.6s linear alternate;
+    box-shadow: inset 0 var(--leftFillTo) blue;
 }
 
-.glassEmpty {
-    animation: empty 1.6s linear alternate;
-    box-shadow: inset 0 0px blue;
+.glassRight {
+    --rightFillFrom: -70px;
+    --rightFillTo: -20px;
+    animation: rightLoad 1.6s linear alternate;
+    box-shadow: inset 0 var(--rightFillTo) blue;
 }
 
-@keyframes load {
+@keyframes leftLoad {
     0% {
-        box-shadow: inset 0 0 blue;
+        box-shadow: inset 0 var(--leftFillFrom) blue;
     }
     100% {
-        box-shadow: inset 0 -82px blue;
+        box-shadow: inset 0 var(--leftFillTo) blue;
     }
 }
 
-@keyframes empty {
+@keyframes rightLoad {
     0% {
-        box-shadow: inset 0 -82px blue;
+        box-shadow: inset 0 var(--rightFillFrom) blue;
     }
     100% {
-        box-shadow: inset 0 0 blue;
+        box-shadow: inset 0 var(--rightFillTo) blue;
     }
 }
