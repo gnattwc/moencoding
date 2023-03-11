@@ -60,6 +60,26 @@ function runAnimation(
   const table = <HTMLTableElement>document.getElementById("solutionTable")!;
   table.rows[i + 1].classList.add("highlight");
 
+  const leftGlassCtr = <HTMLDivElement>document.getElementById("leftGlassCtr");
+  const rightGlassCtr = <HTMLDivElement>(
+    document.getElementById("rightGlassCtr")
+  );
+  switch (solution[i].action) {
+    case JugAction.EmptyLeft:
+    case JugAction.FillLeft:
+      leftGlassCtr.classList.add("highlight");
+      break;
+    case JugAction.EmptyRight:
+    case JugAction.FillRight:
+      rightGlassCtr.classList.add("highlight");
+      break;
+    case JugAction.LeftToRight:
+    case JugAction.RightToLeft:
+      leftGlassCtr.classList.add("highlight");
+      rightGlassCtr.classList.add("highlight");
+      break;
+  }
+
   setTimeout(() => {
     resetAnimation(solution, i, jug1, jug2, aim);
   }, 1600);
@@ -79,6 +99,11 @@ function resetAnimation(
 
   const table = <HTMLTableElement>document.getElementById("solutionTable")!;
   table.rows[i + 1].classList.remove("highlight");
+
+  const leftGlassCtr = <HTMLDivElement>document.getElementById("leftGlassCtr");
+  const rightGlassCtr = <HTMLDivElement>(    document.getElementById("rightGlassCtr"));
+  leftGlassCtr.classList.remove("highlight");
+  rightGlassCtr.classList.remove("highlight");
 
   if (i < solution.length - 1) {
     setTimeout(() => {
