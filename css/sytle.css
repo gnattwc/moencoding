@@ -49,7 +49,6 @@
 
 .glass {
     width: 40px;
-    height: 100px;
     position: relative;
     margin: 40px;
     border: 2px solid black;
@@ -57,16 +56,20 @@
 }
 
 .leftGlass {
+    --leftHeight: 100px;
     --leftFillFrom: -25px;
     --leftFillTo: -50px;
     --leftAniDur: 1600ms;
+    height: var(--leftHeight);
     box-shadow: inset 0 var(--leftFillTo) blue;
 }
 
 .rightGlass {
+    --rightHeight: 100px;
     --rightFillFrom: -70px;
     --rightFillTo: -20px;
     --rightAniDur: 1600ms;
+    height: var(--rightHeight);
     box-shadow: inset 0 var(--rightFillTo) blue;
 }
 

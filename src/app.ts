@@ -44,21 +44,48 @@ function runAnimation(
   aim: number
 ) {
   if (solution.length > 0) {
-    const glassSection = <HTMLDivElement>document.getElementById("glassSection");
+    const glassSection = <HTMLDivElement>(
+      document.getElementById("glassSection")
+    );
     glassSection.style.visibility = "visible";
-  
+
+    // make one jug look smaller
+    let leftHeight = jug1 < jug2 ? 80 : 100;
+    let rightHeight = jug2 < jug1 ? 80 : 100;
+
     const leftGlass = <HTMLDivElement>document.getElementById("leftGlass");
     const rightGlass = <HTMLDivElement>document.getElementById("rightGlass");
 
-    const leftFrom = i > 0 ? (solution[i - 1].state[0] / jug1) * 100 : 0;
-    const rightFrom = i > 0 ? (solution[i - 1].state[1] / jug2) * 100 : 0;
-    const leftTo = (solution[i].state[0] / jug1) * 100;
-    const rightTo = (solution[i].state[1] / jug2) * 100;
+    const adjustment = 1.1; // the jugs doesn't look full enough when half empty.  Add some adjustment.
+    const leftFrom =
+      i > 0
+        ? Math.min(
+            (solution[i - 1].state[0] / jug1) * leftHeight * adjustment,
+            leftHeight
+          )
+        : 0;
+    const rightFrom =
+      i > 0
+        ? Math.min(
+            (solution[i - 1].state[1] / jug2) * rightHeight * adjustment,
+            rightHeight
+          )
+        : 0;
+    const leftTo = Math.min(
+      (solution[i].state[0] / jug1) * leftHeight * adjustment,
+      leftHeight
+    );
+    const rightTo = Math.min(
+      (solution[i].state[1] / jug2) * rightHeight * adjustment,
+      rightHeight
+    );
     const aniDur = 1600;
 
+    leftGlass.style.setProperty("--leftHeight", `${leftHeight}px`);
     leftGlass.style.setProperty("--leftFillFrom", `-${leftFrom}px`);
     leftGlass.style.setProperty("--leftFillTo", `-${leftTo}px`);
     leftGlass.style.setProperty("--leftAniDur", `${aniDur}ms`);
+    rightGlass.style.setProperty("--rightHeight", `${rightHeight}px`);
     rightGlass.style.setProperty("--rightFillFrom", `-${rightFrom}px`);
     rightGlass.style.setProperty("--rightFillTo", `-${rightTo}px`);
     rightGlass.style.setProperty("--rightAniDur", `${aniDur}ms`);

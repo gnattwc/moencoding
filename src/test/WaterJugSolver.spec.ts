@@ -46,6 +46,12 @@ describe ("bfsSolver Tests", () => {
         assert(solution.length);
     })
 
+    it ("2 8 10 - both jugs", () => {
+        const solution = bfsSolver(2,8,10,[0,0]);
+        console.log('solution=',solution) ;
+        assert(solution.length);
+    })
+
     it ("no solution", () => {
         const solution = bfsSolver(12,8,5,[0,0]);
         console.log('solution=',solution) ;
