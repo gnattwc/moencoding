@@ -1,4 +1,5 @@
 FROM alpine
+RUN apk add --update npm
 RUN mkdir /usr/local/moencoding
 WORKDIR /usr/local/moencoding
 COPY . .
