@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "start-prod": "webpack-dev-server -c webpack.config.prod.js",
     "webpack-dev": "webpack",
     "webpack-prod": "webpack --config webpack.config.prod.js",
     "build": "tsc",
