@@ -10,9 +10,15 @@ function solveRiddle() {
   const jug1 = <HTMLInputElement>document.getElementById("leftJug");
   const jug2 = <HTMLInputElement>document.getElementById("rightJug");
   const aim = <HTMLInputElement>document.getElementById("aim");
+  const MAX_JUG_SIZE = 50_000;
+  const MIN_JUG_SIZE = 0;
 
   if (!jug1.value || !jug2.value || !aim.value) {
     alert("Please enter all values for X,Y,Z");
+    return;
+  } else if (+jug1.value > MAX_JUG_SIZE || +jug2.value > MAX_JUG_SIZE || +aim.value > MAX_JUG_SIZE ||
+    +jug1.value < MIN_JUG_SIZE || +jug2.value < MIN_JUG_SIZE || +aim.value < MIN_JUG_SIZE ) {
+    alert(`Please enter X,Y,Z between ${MIN_JUG_SIZE} and ${MAX_JUG_SIZE}`);
     return;
   }
 
